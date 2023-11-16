@@ -23,7 +23,7 @@ void bubble_sort(int *array, size_t size)
 {
 	size_t i, j;
 
-	if (size < 2 || !array)
+	if (size < 2 || !arra)
 		return;
 
 	/* Loop through all elements */
