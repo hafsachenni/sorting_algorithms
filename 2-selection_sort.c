@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * swap - is a swiping bewteen
+ * swap - is a swiping bewteen @a and @b
  * @a: take a aguement and changing it with b
  * @b: take a aguement and changing it with a
  */
@@ -14,15 +14,19 @@ void swap(int *a, int *b)
 }
 
 
+/**
+ * selection_sort - function that sorts a list using selection algo
+ * @array: the array to be sorted
+ * @size: size of the array
+ */
 
 void selection_sort(int *array, size_t size)
 {
-	/*looping throght the arr and check is i < than min */
-	size_t i, j, k;
+	size_t i, j, min;
 
 	for (i = 0; i < size - 1; i++)
 	{
-		size_t min = i;
+		min = i;
 
 		for (j = i + 1; j < size; j++)
 		{
@@ -30,11 +34,12 @@ void selection_sort(int *array, size_t size)
 			{
 				min = j;
 			}
-		/* swap the smallest elem with first elem of the sorted part*/
-		swap(&array[i], &array[min]);
-			for (k = 0; k < size; k++)
-				print_array(array[k], size);
 		}
 
+		/* swap the smallest elem with first elem of the sorted part*/
+		swap(&array[i], &array[min]);
+		/* print the sorted array */
+		print_array(array, size);
 	}
+
 }
