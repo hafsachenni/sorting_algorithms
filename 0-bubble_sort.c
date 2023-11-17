@@ -1,7 +1,7 @@
 #include "sort.h"
 
 /**
- * swap - is a swip function
+ * swap - is a swiping bewteen @a and @b
  * @a: take a aguement and changing it with b
  * @b: take a aguement and changing it with a
  */
