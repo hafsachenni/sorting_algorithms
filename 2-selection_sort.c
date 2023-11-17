@@ -14,6 +14,11 @@ void swap(int *a, int *b)
 }
 
 
+/**
+ * selection_sort - function that sorts a list using selection algo
+ * @array: the array to be sorted
+ * @size: size of the array
+ */
 
 void selection_sort(int *array, size_t size)
 {
@@ -28,11 +33,10 @@ void selection_sort(int *array, size_t size)
 			{
 				min = j;
 			}
+
+		}
 		/* swap the smallest elem with first elem of the sorted part*/
 		swap(&array[i], &array[min]);
-			for (size_t k = 0; k < size; k++)
-			print_array(array[k], size)
-		}
-
+		print_array(array, size);
 	}
 }
