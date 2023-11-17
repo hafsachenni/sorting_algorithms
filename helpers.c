@@ -14,7 +14,6 @@ void swap(int *a, int *b)
 }
 
 
-#include "sort.h"
 
 /**
  * swaps - function that swaps 2 nodes in the list
