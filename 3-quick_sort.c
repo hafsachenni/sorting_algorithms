@@ -51,11 +51,11 @@ int partition(int *array, int start, int end, size_t size)
 
 void quicksort(int *array, int start, int end, size_t size)
 {
-	int pivot_index;
 
 	if (start < end)
 	{
-		pivot_index = partition(array, start, end, size);
+		int pivot_index = partition(array, start, end, size);
+
 		quicksort(array, start, pivot_index - 1, size);
 		quicksort(array, pivot_index + 1, end, size);
 	}
@@ -72,5 +72,7 @@ void quicksort(int *array, int start, int end, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
+	if (!array || !size)
+		return;
 	quicksort(array, 0, size - 1, size);
 }
