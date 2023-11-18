@@ -22,8 +22,6 @@ void swap(int *a, int *b)
  * @size: size of the array
  * @return: the index of the pivot element after partitioning
  */
-
-
 size_t partition(int *array, size_t start, size_t end, size_t size)
 {
 	size_t	i = start - 1;
