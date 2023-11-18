@@ -23,19 +23,6 @@ typedef struct listint_s
 } listint_t;
 
 
-/**
- * swap - is a swiping bewteen @a and @b value
- * @a: take a aguement and changing it with b
- * @b: take a aguement and changing it with a
- */
-
-void swap(int *a, int *b)
-{
-	int temp = *a;
-	*a = *b;
-	*b = temp;
-}
-
 
 void swaps(listint_t *a, listint_t *b);
 void swap(int *a, int *b);

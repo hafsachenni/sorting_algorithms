@@ -1,5 +1,18 @@
 #include "sort.h"
 
+/**
+ * swap - is a swiping bewteen @a and @b
+ * @a: take a aguement and changing it with b
+ * @b: take a aguement and changing it with a
+ */
+
+void swap(int *a, int *b)
+{
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 
 /**
  * selection_sort - function that sorts a list using selection algo
