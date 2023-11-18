@@ -2,52 +2,49 @@
 
 /**
  * swap - is a swiping bewteen @a and @b
+ * @array: Array to start
  * @a: take a aguement and changing it with b
  * @b: take a aguement and changing it with a
+ * @size: of the array
  */
 
-void swap(int *a, int *b)
+void swap(int *array, int *a, int *b, int size)
 {
 	int temp = *a;
 	*a = *b;
 	*b = temp;
+		if (*a != *b)
+		print_array(array, size);
 }
 
 
+
 /**
- * partition - function that partitions the array
+ * partition - function that partitions the array and return (i + 1)
  * @array: array to be sorted
  * @start: first index of array
  * @end: last index of array
  * @size: size of the array
- * @return: the index of the pivot element after partitioning
+ * @return: the index (i + 1) of the pivot element after partitioning
  */
 
-
-size_t partition(int *array, size_t start, size_t end, size_t size)
+int partition(int *array, int start, int end, size_t size)
 {
-	size_t	i = start - 1;
-	size_t	j;
-	int	pivot = array[end];
+	int i, j;
+	int pivot = array[end];
 
-	for (j = start; j < end; j++)
-	{
-		if (array[j] < pivot)
+	for (i = start - 1, j = start; j <= end - 1; j++)
+		if (array[j] <= pivot)
 		{
-			if (++i != j)
-			{
-				swap(&array[i], &array[j]);
-				print_array(array, size);
-			}
+			i++;
+			swap(array, &array[j], &array[i], size);
 		}
-	}
-	if (array[i + 1] > array[end])
-	{
-		swap(&array[i + 1], &array[end]);
-		print_array(array, size);
-	}
+	swap(array, &array[i + 1], &array[end], size);
+	print_array(array, size);
 	return (i + 1);
 }
+
+
 
 /**
  * quicksort - sorts an array of ints using the quick sort algorithm
@@ -59,7 +56,7 @@ size_t partition(int *array, size_t start, size_t end, size_t size)
 
 void quicksort(int *array, int start, int end, size_t size)
 {
-	int pivot_index;
+	int pivot_index = 0;
 
 	if (start < end)
 	{
@@ -68,6 +65,8 @@ void quicksort(int *array, int start, int end, size_t size)
 		quicksort(array, pivot_index + 1, end, size);
 	}
 }
+
+
 
 /**
  * quick_sort - sorts an array in ascending
@@ -78,7 +77,5 @@ void quicksort(int *array, int start, int end, size_t size)
 
 void quick_sort(int *array, size_t size)
 {
-	if (array == 0 || size < 2)
-		return;
 	quicksort(array, 0, size - 1, size);
 }
