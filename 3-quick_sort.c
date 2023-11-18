@@ -8,7 +8,9 @@
 
 void swap(int *a, int *b)
 {
-	int temp = *a;
+	int temp;
+
+	temp = *a;
 	*a = *b;
 	*b = temp;
 }
@@ -27,10 +29,13 @@ int partition(int *array, int start, int end, size_t size)
 {
 	int i, j, pivot = array[end];
 
-	for (i = j = start; j < end; j++)
+	for (i = start - 1, j = start; j < end - 1; j++)
 		if (array[j] < pivot)
-			swap(array, size, &array[j], &array[i++]);
-	swap(array, size, &array[i], &array[end]);
+		{
+			i++;
+			swap(&array[j], &array[i]);
+		}
+	swap(&array[i], &array[end]);
 	print_array(array, size);
 
 	return (i);
@@ -51,8 +56,7 @@ void quicksort(int *array, int start, int end, size_t size)
 
 	if (start < end)
 	{
-		size_t pivot_index = partition(array, size, start, end);
-
+		int pivot_index = partition(array, size, start, end);
 		quicksort(array, size, start, pivot_index - 1);
 		quicksort(array, size, pivot_index + 1, end);
 	}
@@ -71,5 +75,5 @@ void quick_sort(int *array, size_t size)
 {
 	if (!array || !size)
 		return;
-	quicksort(array, sizee, 0, size - 1);
+	quicksort(array, size, 0, size - 1);
 }
