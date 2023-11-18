@@ -19,14 +19,15 @@ void swap(int *a, int *b)
  * @array: array to be sorted
  * @start: first index of array
  * @end: last index of array
+ * @size: size of the array
  */
 
 int partition(int *array, int start, int end, size_t size)
 {
 	int i, j;
-	pivot = array[end];
+	int pivot = array[end];
 
-	for(i = start - 1, j = start; j < end - 1; j++)
+	for(i = start - 1, j = start; j <= end - 1; j++)
 		if (array[j] <= pivot)
 		{
 			i++;
@@ -43,21 +44,30 @@ int partition(int *array, int start, int end, size_t size)
  * quick_sort - sorts an array of ints
  * @array: array to be sorted
  * @size: size of the array
+ * @end: last idx of the array
+ * @start: first idx of the array
  */
 
 void quicksort(int *array, size_t size, int end, int start)
 {
 	int a;
+	int pivot = array[end];
+
 	if (start < end)
 	{
-		a = partition(array, start, end);
-		quicksort(array, start, pivot - 1);
-		quicksort(array, pivot + 1, end);
+		a = partition(array, size, start, end);
+		quicksort(array, size,  start, pivot - 1);
+		quicksort(array, size, pivot + 1, end);
 	}
 }
 
 
 
+/**
+ * quick_sort - sorts an array in ascending order
+ * @array: array to be sorted
+ * @size: size of the array
+ */
 
 void quick_sort(int *array, size_t size)
 {
