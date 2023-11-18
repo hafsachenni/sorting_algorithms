@@ -27,11 +27,11 @@ int partition(int *array, int start, int end, size_t size)
 	int i, j;
 	int pivot = array[end];
 
-	for(i = start - 1, j = start; j <= end - 1; j++)
+	for(i = start -1, j = start; j <= end; j++)
 		if (array[j] <= pivot)
 		{
 			i++;
-			swap(&array[j], &array[i]);
+ 		        swap(&array[j], &array[i]);
 		}
 	swap(&array[i], &array[end]);
 	print_array(array, size);
@@ -48,15 +48,14 @@ int partition(int *array, int start, int end, size_t size)
  * @start: first idx of the array
  */
 
-void quicksort(int *array, size_t size, int end, int start)
+void quicksort(int *array, size_t size, int start, int end)
 {
-	int a;
-	int pivot = array[end];
+	int pivot;
 
 	if (start < end)
 	{
-		a = partition(array, size, start, end);
-		quicksort(array, size,  start, pivot - 1);
+		pivot = partition(array, size, start, end);
+		quicksort(array, size, start, pivot - 1);
 		quicksort(array, size, pivot + 1, end);
 	}
 }
@@ -71,5 +70,7 @@ void quicksort(int *array, size_t size, int end, int start)
 
 void quick_sort(int *array, size_t size)
 {
+	if (!array || !size)
+		return;
 	quicksort(array, size, 0, size - 1);
 }
