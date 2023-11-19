@@ -30,7 +30,7 @@ void bubble_sort(int *array, size_t size)
 	for (i = 0; i < size - 1; i++)
 	{
 		/* Loop through the unsorted elements */
-		for (j = 0; j < size - i - 1; j++)
+		for (j = 0; j < size - i + 1; j++)
 		{
 			/* Compare adjacent elements and swap them if they are in wrong order */
 			if (array[j] > array[j + 1])
